@@ -41,7 +41,7 @@ module.exports = {
             ariaLabel: 'Language Menu',
             items: [{
                 text: 'Site Original (em inglês)',
-                link: 'https://deomkds.github.io/'
+                link: 'https://dortania.github.io/'
             },
             {
                 text: 'Primeiros Passos com a ACPI',
@@ -56,6 +56,10 @@ module.exports = {
                 link: 'https://deomkds.github.io/OpenCore-Post-Install/'
             },
             {
+                text: 'Multiboot com o OpenCore',
+                link: 'https://deomkds.github.io/OpenCore-Multiboot/'
+            },            
+            {
                 text: 'Guia de Compra de GPUs',
                 link: 'https://deomkds.github.io/GPU-Buyers-Guide/'
             },
@@ -63,12 +67,8 @@ module.exports = {
                 text: 'Guia de Compra de Wi-Fi',
                 link: 'https://deomkds.github.io/Wireless-Buyers-Guide/'
             },
-            {
-                text: 'Guia de Compra Anti-Hackintosh',
-                link: 'https://deomkds.github.io/Anti-Hackintosh-Buyers-Guide/'
-            },
             ]
-        }
+        },
         ],
         sidebar: [{
             title: 'Introdução',
