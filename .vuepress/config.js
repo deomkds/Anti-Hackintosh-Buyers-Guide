@@ -3,20 +3,8 @@ const {
 } = require('../package')
 
 module.exports = {
-    /**
-     * Ref：https://v1.vuepress.vuejs.org/config/#title
-     */
     title: 'Anti-Hackintosh Buyers Guide',
-    /**
-     * Ref：https://v1.vuepress.vuejs.org/config/#description
-     */
     description: description,
-
-    /**
-     * Extra tags to be injected to the page HTML `<head>`
-     *
-     * ref：https://v1.vuepress.vuejs.org/config/#head
-     */
     head: [
         ['meta', {
             name: 'theme-color',
@@ -36,13 +24,6 @@ module.exports = {
         },]
     ],
     base: '/Anti-Hackintosh-Buyers-Guide/',
-
-
-    /**
-     * Theme configuration, here is the default theme configuration for VuePress.
-     *
-     * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-     */
     theme: 'vuepress-theme-succinct',
     globalUIComponents: [
         'ThemeManager'
@@ -50,49 +31,47 @@ module.exports = {
 
     themeConfig: {
         lastUpdated: true,
-        repo: 'https://github.com/dortania/Anti-Hackintosh-Buyers-Guide',
+        repo: 'https://github.com/deomkds/Anti-Hackintosh-Buyers-Guide',
         editLinks: false,
         docsDir: '',
         editLinkText: '',
         logo: '/homepage.png',
         nav: [{
-            text: 'Dortania Guides',
+            text: 'Outros Guias',
             ariaLabel: 'Language Menu',
             items: [{
-                text: 'Home Site',
-                link: 'https://dortania.github.io/'
+                text: 'Site Original (em inglês)',
+                link: 'https://deomkds.github.io/'
             },
             {
-                text: 'Getting Started With ACPI',
-                link: 'https://dortania.github.io/Getting-Started-With-ACPI/'
+                text: 'Primeiros Passos com a ACPI',
+                link: 'https://deomkds.github.io/Getting-Started-With-ACPI/'
             },
             {
-                text: 'OpenCore Install Guide',
-                link: 'https://dortania.github.io/OpenCore-Install-Guide/'
+                text: 'Guia de Instalação do OpenCore',
+                link: 'https://deomkds.github.io/OpenCore-Install-Guide/'
             },
             {
-                text: 'OpenCore Post-Install',
-                link: 'https://dortania.github.io/OpenCore-Post-Install/'
+                text: 'Pós-instalação do OpenCore',
+                link: 'https://deomkds.github.io/OpenCore-Post-Install/'
             },
             {
-                text: 'Wireless Buyers Guide',
-                link: 'https://dortania.github.io/Wireless-Buyers-Guide/'
+                text: 'Guia de Compra de GPUs',
+                link: 'https://deomkds.github.io/GPU-Buyers-Guide/'
             },
             {
-                text: 'GPU Buyers Guide',
-                link: 'https://dortania.github.io/GPU-Buyers-Guide/'
+                text: 'Guia de Compra de Wi-Fi',
+                link: 'https://deomkds.github.io/Wireless-Buyers-Guide/'
+            },
+            {
+                text: 'Guia de Compra Anti-Hackintosh',
+                link: 'https://deomkds.github.io/Anti-Hackintosh-Buyers-Guide/'
             },
             ]
-        },
-            /*
-              {
-                text: 'Github',
-                link: 'https://github.com/dortania/OpenCore-Install-Guide'
-              }
-            */
+        }
         ],
         sidebar: [{
-            title: 'Introduction',
+            title: 'Introdução',
             collapsable: false,
             sidebarDepth: 1,
             children: [
@@ -101,28 +80,25 @@ module.exports = {
 
         },
         {
-            title: 'What to avoid',
+            title: 'O Que Evitar',
             collapsable: false,
             sidebarDepth: 2,
             children: [
-                'CPU',
-                'GPU',
-				'Motherboard',
-				'Storage',
-				'RAM',
-				'Cooler',
-				'Networking',
-				'Wireless',
-				'PSU',
-				'Case',
-				'ThermalPaste',
+                ['CPU', 'CPU'],
+                ['GPU', 'GPU'],
+				        ['Motherboard', 'Placa-Mãe'],
+				        ['Storage', 'Armazenamento'],
+				        ['RAM', 'Memória RAM'],
+				        ['Cooler', 'Cooler'],
+				        ['Networking', 'Rede Cabeada'],
+				        ['Wireless', 'Rede Sem Fio'],
+				        ['PSU', 'Fonte de Alimentação'],
+				        ['Case', 'Gabinete'],
+				        ['ThermalPaste', 'Pasta Térmica'],
             ]
         },
     ],
 },
-    /**
-     * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-     */
     plugins: [
         '@vuepress/plugin-back-to-top',
         'vuepress-plugin-smooth-scroll',

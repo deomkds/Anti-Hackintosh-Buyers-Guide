@@ -43,5 +43,6 @@
   },
   "dependencies": {
     "vuepress-theme-yuu": "^2.3.0"
-  }
+  },
+  "author": "Marcus Vinícius <mv.cunha2009@gmail.com>"
 }
