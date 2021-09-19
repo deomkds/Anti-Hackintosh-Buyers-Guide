@@ -1,15 +1,14 @@
 # GPUs
 
-~~Compra uma GPU RTX! Eu quero ver as pessoas sofrerem ao perceberem lentamente que elas não tem suporte nem mesmo no macOS 10.13 High Sierra. Deixa os fãs de Nvidia morrerem uma morte lenta e dolorosa para lembrarem de nunca cruzar o caminho do nosso senhor e salvador Tim Apple~~
+~~Get an RTX GPU, I want to see people suffer as they slowly realize that they don't even have support in High Sierra. Let the Nvidia fans die a slow and painful death, let this be a reminder to never cross our lord and savior Tim Apple~~
+If you don't want a headache, stay away from all Nvidia GPUs that aren't Kepler based. Currently(and likely forever), Turing and Volta GPUs have no support whatsoever in any version of macOS while Pascal and Maxwell have their support stopping in High Sierra while also requiring Web Drivers so they're not native GPUs(this is important because that means another point of failure)
 
-Caso não queira ter dores de cabeça, fique longe de todas as GPUs Nvidia que não são baseadas na arquitetura Kepler. Atualmente (e talvez para sempre), as GPUs Turing e Volta não possuem nenhum tipo de suporte em nenhuma versão do macOS, enquanto que GPUs Pascal e Maxwell ficaram presas no macOS 10.13 High Sierra e, mesmo assim, ainda precisam dos Web Drivers, o que significa que não são GPUs nativas (isso é importante porque mostra outro ponto de falha).
-
-> M-m-mas os drivers já foram lançados?
+> B-b-but are the drivers out yet?
 
 ![Web Drivers](WebDrivers.gif)
 
-Para GPUs, recomenda-se verificar o [Guia de Compra de GPUs](https://deomkds.github.io/GPU-Buyers-Guide/).
-E aqueles que estejam usando GPUs não suportadas, ainda há esperança! Com o nosso guia [**Como desativar sua GPU não suportada no macOS**](https://deomkds.github.io/Getting-Started-With-ACPI/Desktops/desktop-disable.html), até mesmo um Zé Ruela como você pode experimentar as glórias do macOS 10.14 Mojave e além!
+For GPUs we recommend, check out the [GPU Buyers Guide](https://dortania.github.io/GPU-Buyers-Guide/)
+And for those who are running unsupported GPUs, there's still hope for you! With our patent pending [**How to disable your unsupported GPU for macOS Guide**](https://dortania.github.io/Getting-Started-With-ACPI/Desktops/desktop-disable.html), even a simpleton like you can experience the glories of Mojave and beyond!
 
 > Are there any GPU board partners I should avoid when buying a GPU?
 
