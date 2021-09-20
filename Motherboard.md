@@ -1,51 +1,51 @@
-# Motherboards
+# Placas-mãe
 
 ::: warning
 
-~~Currently the only motherboard not supported **at all** is the B550 boards from AMD, they require a KVM to operate.~~
+~~Atualmente, a única placa-mãe que não possui **nenhum** suporte são as B550 da AMD, que exigem um KVM para serem operadas.~~
 
-Recent developments have resolved this issue with SSDT-CPUR, see [OpenCore Install Guide for more info](https://dortania.github.io/OpenCore-Install-Guide/)
+Desenvolvimentos recentes resolveram esse problema por meio da SSDT-CPUR. Veja o [Guia de Instalação do OpenCore](https://deomkds.github.io/OpenCore-Install-Guide/) para obter mais informações.
 
 :::
 
-So with motherboards, the main thing to keep in mind is what controllers your system is running, specifically:
+Quando o assunto são placas-mãe, o principal ponto a se observar são os controladores que o computador utiliza, especificamente:
 
-* Audio Interface Controller
-* Networking Interface Controller (Ethernet)
-* USB Controllers
+* Controlador da Interface de Áudio
+* Controlador da Interface de Rede (Ethernet)
+* Controladores USB
 * NVRAM
-* iGPU
+* GPU Integrada
 * RTC vs AWAC
-* Memory Maps and Protections
+* Mapas de Memória e Proteções
 
-And in regards to AMD and Intel motherboards:
+E em relação a placas-mãe AMD e Intel:
 
 * **Intel**:
-  * Different brands have different levels of support, however overall all brands are boot-able assuming you're OK with tinkering (mentioned below).
+  * Marcas diferentes possuem níveis diferentes de suporte, no entanto, de maneira geral, todas as marcas são iniciáveis, presumindo que o usuário não se importe de fuçar (mencionado abaixo).
 * **AMD**:
-  * Pretty much all AMD motherboards are unfavorable due to the [numerous hacks required to boot](https://github.com/AMD-OSX/AMD_Vanilla), however the brand itself won't affect support very much with macOS.
-  * Misc hardware support like Audio and Ethernet are still something to keep in mind.
+  * Praticamente todas as placas-mãe AMD não são favoráveis devido aos [inúmeros hacks necessários para iniciar](https://github.com/AMD-OSX/AMD_Vanilla) (em inglês), no entanto, a marca em si não afeta muito o suporte no macOS.
+  * Suporte a hardwares variados, como áudio e Ethernet, ainda são coisas para ficar de olho.
 
-The main brands to avoid with **Intel** are:
+As principais placas **Intel** a se evitar são:
 
 * MSI
-  * Weird Memory Layout that requires KASLR fix and just really poor ACPI programming, many Z390 systems are unbootable on Clover
-  * OpenCore can boot these systems relatively easily
+  * Leiaute de memória estranho que requer correções de KASLR e péssima programação de ACPI. Muitos computadores Z390 não iniciam com o Clover.
+  * O OpenCore consegue iniciar nesses computadores de maneira relativamente fácil.
 * AsRock
-  * non-native USB controller, Weird Memory Layout
-  * USB issues mainly for Z390 and older, Z490 are fine
+  * Controlador USB não nativo e leiaute de memória estranho.
+  * Problemas de USB principalmente em Z390 e mais antigos. Z490 está de boa.
 * Gigabyte
-  * Weird Memory Layout, requires KASLR fix
-  * Mainly Z390, Z370 and Z490 are known good
+  * Leiaute de memória estranho que requer correções de KASLR.
+  * Principalmente Z390, Z370 e Z490 são conhecidas por serem boas.
 * Asus
-  * USB issues on B460, H470 and Z490
-  * Z390 and older are fine
+  * Problemas de USB em B460, H470 e Z490.
+  * Z390 e mais antigas estão de boa.
 
-::: tip Recommendations
+::: tip Recomendações
 
-So our overall recommendation for brands(Intel):
+A recomendação geral de marcas Intel é:
 
-* Z370 and older:
+* Z370 e mais antigas:
   * Gigabyte
   * Asus
   * MSI
@@ -53,13 +53,13 @@ So our overall recommendation for brands(Intel):
   * Asus
   * Gigabyte
 * Z490:
-  * Asus,
+  * Asus
   * Gigabyte
   * AsRock
 
 :::
 
-And main platform to avoid (for stability and ease of setup):
+As principais plataformas a se evitar são:
 
 * X79
 * X99
@@ -76,77 +76,79 @@ And main platform to avoid (for stability and ease of setup):
 * H470
 * Z490
 
-Note (*): Only get these in case you need features from these that aren't found in Z370 or you want to overclock a 9th Gen CPU. Most of the issues with these have been corrected but they're still a big mess, see below.
+Observação (*): somente compre essas caso precise de recursos que não são encontrados na Z370 ou queira fazer _overclock_ em uma CPU Intel de 9ª geração. A maioria dos problemas com essas placas já foi corrigido, mas elas ainda são uma grande bagunça. Mais detalhes abaixo.
 
 ---
 
-## Audio
+## Áudio
 
-With audio, most boards are supported and you can find a more extensive list from [AppleALC](https://github.com/acidanthera/AppleALC/wiki/Supported-codecs) for audio. VoodooHDA is another option for legacy users
+O áudio da maioria das placas é suportado. É possível encontrar uma lista mais extensa na página da [AppleALC](https://github.com/acidanthera/AppleALC/wiki/Supported-codecs) (em inglês). A VoodooHDA é também uma opção para usuários de placas antigas.
 
-**note**: AMD motherboard users will require VoodooHDA if you plan to use the onboard microphone header. Regular audio output works however with AppleALC
+**Observação**: usuários de placas-mãe AMD precisarão usar a VoodooHDA caso desejem utilizar o conector de microfone integrado. No entanto, a saída de áudio normal funciona com a AppleALC.
 
 ---
 
 ## Ethernet
 
-For ethernet basically all Gigabit NICs are supported(see below for more info)
+Quanto a Ethernet, basicamente todos os NICs gigabit são suportados. Veja mais informações a seguir.
 
 * [IntelMausiEthernet.kext](https://github.com/Mieze/IntelMausiEthernet)
-  * For majority of Intel Controllers
+  * Para a maioria dos controladores Intel.
 * [SmallTree-I211-AT-patch](https://github.com/khronokernel/SmallTree-I211-AT-patch/releases)
-  * For I211-AT which is commonly found on AMD boards
+  * Para a I211-AT, que é comumente encontrada em placas AMD.
 * [AtherosE2200Ethernet.kext](https://github.com/Mieze/AtherosE2200Ethernet)
-  * For majority of Atheros Controllers
+  * Para a maioria dos controladores Atheros.
 * [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X)
-  * For Realtek's Gigabit Ethernet
+  * Para Realtek Gigabit Ethernet.
 * [LucyRTL8125Ethernet](https://github.com/Mieze/LucyRTL8125Ethernet)
-  * For Realtek's 2.5Gb Ethernet
+  * Para Realtek 2.5Gb Ethernet.
 
-For legacy ethernet controllers, you have a couple to choose from(systems with these chips are generally from a time before the Core i series of processors):
+Para controladores de Ethernet antigos, existem algumas opções para escolher. Computadores com esses chips geralmente são de uma era anterior à série Core i de processadores.
 
 * [AppleIntelE1000e.kext](https://github.com/chris1111/AppleIntelE1000e)
 * [https://github.com/Mieze/RealtekRTL8100](https://github.com/Mieze/RealtekRTL8100)
 
-**Note**: Realtek L8200A is outright unsupported, for a full list see [Networking section](/Networking.md)
+**Observação**: A Realtek L8200A é completamente não suportada. Para obter uma lista completa, veja a seção [Rede](/Networking.md).
 
-**Note 2**: For those planning on buying Intel's Z490 boards, please note that the i225-V NIC is not supported officially without a device-id spoof. Example of this can be found here: [Comet Lake i225-V spoof](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#starting-point)
+**Observação 2**: Aqueles que planejam comprar placas Intel Z490, perceba que o controlador i225-V não possui suporte oficial sem a falsificação de *device-id*. Um exemplo disso pode ser encontrado aqui: [Falsificação de Comet Lake i225-V](https://deomkds.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#ponto-de-partida).
 
 ---
 
 ## USB
 
-For USB, things are *fairly* simple, most Ryzen/Matisse, Intel and AsMedia controllers work out of the box with no other configuration besides a [USB map](https://dortania.github.io/OpenCore-Post-Install/usb/). For AsRock users with Intel CPUs, you'll need to use XHCI-unsupported.kext(which can be found within [RehabMan's USBInjectAll's project](https://github.com/RehabMan/OS-X-USB-Inject-All). Many H370, B360, H310 and X79/X99/X299 users can also benefit from this
+Quanto a USB, as coisas são *razoavelmente* simples. A maioria dos controladores Ryzen/Matisse, Intel e AsMedia funcionam automaticamente sem nenhuma outra configuração além do [Mapa de USB](https://deomkds.github.io/OpenCore-Post-Install/usb/). Para usuários de AsRock com CPUs Intel, será necessário usar a `XHCI-unsupported.kext` (que pode ser encontrada dentro do projeto [USBInjectAll do RehabMan](https://github.com/RehabMan/OS-X-USB-Inject-All) (em inglês). Muitas placas H370, B360, H310 e X79/X99/X299 também se beneficiam desta *kext*.
 
-**Special AMD Note**: Due to how macOS builds USBs, they **must** be defined somewhere in the ACPI tables. For some reason, many AMD boards just forget to do this and users end up with a lot of broken USB ports. There is a fix but it involves manually adding the ports to the [DSDT or SSDT](https://dortania.github.io/OpenCore-Post-Install/usb/).
+**Observação Especial para AMD**: devido à forma como o macOS constrói USBs, elas **precisam** estar definidas em algum lugar das tabelas ACPI. Por algum motivo, muitas placas AMD simplesmente esquecem de fazer isso e os usuários acabam com muitas portas USB quebradas. Há uma correção, mas envolve a adição manual dessas portas na [DSDT ou SSDT](https://deomkds.github.io/OpenCore-Post-Install/usb/).
 
-**Special Asus 400 series note**: Thanks to Asus breaking the ACPI spec, you'll need to use [SSDT-RHUB](https://dortania.github.io/Getting-Started-With-ACPI/) to reset your ports.
+**Observação Especial para Asus Série 400**: graças à Asus não respeitando a especificação da ACPI, será necessário usar a [SSDT-RHUB](https://dortania.github.io/Getting-Started-With-ACPI/) para redefinir suas portas.
 
 ---
 
 ## NVRAM
 
-With NVRAM, things have been mostly fixed for consumer platforms thanks to [SSDT-PMC](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PMC.dsl). Mainly relevant for the following(Note 400 series like Z490 are not included):
+Com a NVRAM, a maioria dos problemas já foi corrigido nas plataformas de consumidor graças à [SSDT-PMC](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PMC.dsl). Isso é relevante principalmente para as seguintes placas.
+
+Observe que a série 400, como Z490, não estão inclusas.
 
 * Z390
 * H370
 * B360
 * H310
 
-There are however some boards without supported NVRAM, mainly HEDT and server boards:
+No entanto, existem algumas placas sem suporte à NVRAM, principalmente HEDT e placas de servidores:
 
 * C612
 * C621
 * C422
 * X79
 * X99
-* X299(Asus has working NVRAM though)
+* X299 (NVRAM funciona só na Asus).
 
 ---
 
-## iGPU
+## GPU Integrada
 
-So fun part about Coffee Lake is that Intel changed a lot in how the iGPU display out work. Specifically that macOS has no clue how to properly address them. There is a fix but requires [manual BusID patches through WhateverGreen](https://dortania.github.io/OpenCore-Install-Guide/extras/gpu-patches.html). Main victims of this:
+Então, uma coisa engraçada sobre CPUs Coffee Lake é que a Intel mudou muita coisa na maneira como a saída de vídeo da GPU integrada funciona. Mais especificamente, o macOS não tem ideia de como lidar com ela. Há uma correção, mas exige a [aplicação de patches manuais de BusID por meio da WhateverGreen](https://deomkds.github.io/OpenCore-Install-Guide/extras/gpu-patches.html). Principais vítimas são:
 
 * Z490
 * H470
@@ -156,13 +158,13 @@ So fun part about Coffee Lake is that Intel changed a lot in how the iGPU displa
 * B360
 * H310
 
-Note that Z370 is not on the list, this is because the board is basically a Z270 so Apple's video map works fine with it
+Observe que a Z370 não está na lista. Isso acontece porque a placa é basicamente uma Z270, então o mapa de vídeo da Apple funciona corretamente com ela.
 
 ---
 
 ## RTC vs AWAC
 
-With RTC vs AWAC, macOS outright won't boot with systems that have their clocks using AWAC and most BIOS GUIs don't even show the option to change it. This is mainly seen in the following:
+Quanto a RTC vs AWAC, o macOS simplesmente não inicia em computadores cujo relógio é o AWAC e a maioria das interfaces gráficas das BIOS nem mesmo exibem a opção para trocá-lo. Isso é visto principalmente em:
 
 * Z490
 * H470
@@ -171,25 +173,25 @@ With RTC vs AWAC, macOS outright won't boot with systems that have their clocks 
 * H370
 * B360
 * H310
-* Z370(mainly Gigabyte and AsRock, as they back-ported the clock. Other boards are fine)
-* X299(mainly ones released with 10th gen CPUs, AsRock and Gigabyte are the 2 main offenders)
-  * Asus has been back porting AWAC to even 2017 board with never BIOS updates, beware.
+* Z370 (principalmente Gigabyte e AsRock, visto que eles portaram o relógio das versões mais novas para ela. Outras placas são de boa).
+* X299 (principalmente aquelas lançadas com CPUs de 10ª geração. AsRock e Gigabyte são as duas principais infratoras).
+  * A Asus tem portado o AWAC até mesmo para placas de 2017 em novas atualizações de BIOS, então fique de olho.
 
-So we need to either:
+Então, é preciso:
 
-* [force RTC with an SSDT](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-AWAC.dsl),
-* [create a fake systems clock](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-RTC0.dsl)
-* [patch it out](https://www.hackintosh-forum.de/forum/thread/39846-asrock-z390-taichi-ultimate/?pageNo=2)
+* [Forçar o RTC com uma SSDT](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-AWAC.dsl),
+* [Criar um relógio falso](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-RTC0.dsl)
+* [Arrancar fora com patches](https://www.hackintosh-forum.de/forum/thread/39846-asrock-z390-taichi-ultimate/?pageNo=2) (em inglês)
 
-You can find more info here on **how** to fix it: [Getting started with ACPI](https://dortania.github.io/Getting-Started-With-ACPI/)
+Você pode encontrar mais informações sobre como consertar isso na página [Primeiros Passos com a ACPI](https://dortania.github.io/Getting-Started-With-ACPI/).
 
 ---
 
-## Memory Maps and Protections
+## Mapas de Memória e Proteções
 
-With this, main users affected:
+Com isso, as principais placas afetadas são:
 
-* C612 (generally seen in server boards)
+* C612 (visto geralmente em placas de servidor)
 * C621
 * C422
 * X79
@@ -204,6 +206,6 @@ With this, main users affected:
 * H470
 * Z490
 
-The issue these platforms face is that many rely on OsxAptioFix2Drv-free2000 which is now considered destructive to your system meaning build guides based of it are now invalid. More info can be found [here](https://www.reddit.com/r/hackintosh/comments/cfjyla/i_unleashed_a_plague_upon_you_guys_and_i_am_sorry/). These issues can mostly be alleviated by calculating your slide value: [Understanding and fixing "Couldn't allocate runtime area" errors](https://dortania.github.io/OpenCore-Install-Guide/extras/kaslr-fix.html)
+O problema que essas plataformas enfrentam é que muitas delas dependem do OsxAptioFix2Drv-free2000, que agora é considerado danoso ao computador. Isso significa que os guias de compra baseados nele são inválidos. Mais informações podem ser encontradas [aqui](https://www.reddit.com/r/hackintosh/comments/cfjyla/i_unleashed_a_plague_upon_you_guys_and_i_am_sorry/) (em inglês). Esses problemas podem, em grande parte, ser aliviados ao calcular um valor de `slide`: [Calculando o Valor de Slide do KASLR](https://deomkds.github.io/OpenCore-Install-Guide/extras/kaslr-fix.html).
 
-Oh but to add to the fun, Intel introduced Memory protections which mean a lot of the firmware fixes provided by AptioMemoryFix/OpenCore are completely broken. Specifically that any memory patches provided are overridden meaning they're never used. Luckily OpenCore introduced a new quirk called `ProtectUefiServices` which helps fix this by ensuring the patches are applied even after they're reset.
+Ah, e para melhorar ainda mais, a Intel lançou proteções de memória que quebram completamente um monte de correções de firmware fornecidas pelo AptioMemoryFix/OpenCore. Especificamente, qualquer patch de memória fornecido é sobrescrito e acabam nunca sendo utilizados. Por sorte, o OpenCore introduziu uma nova *quirk* chamada `ProtectUefiServices`, que ajuda a corrigir isso ao garantir que os patches são aplicados mesmo depois de serem redefinidos.

@@ -9,33 +9,34 @@ Caso não queira ter dores de cabeça, fique longe de todas as GPUs Nvidia que n
 ![Web Drivers](WebDrivers.gif)
 
 Para GPUs, recomenda-se verificar o [Guia de Compra de GPUs](https://deomkds.github.io/GPU-Buyers-Guide/).
-E aqueles que estejam usando GPUs não suportadas, ainda há esperança! Com o nosso guia [**Como desativar sua GPU não suportada no macOS**](https://deomkds.github.io/Getting-Started-With-ACPI/Desktops/desktop-disable.html), até mesmo um Zé Ruela como você pode experimentar as glórias do macOS 10.14 Mojave e além!
+E para aqueles que estejam usando GPUs não suportadas, ainda há esperança! Com o nosso guia [**Como desativar sua GPU não suportada no macOS**](https://deomkds.github.io/Getting-Started-With-ACPI/Desktops/desktop-disable.html), até mesmo um Zé Ruela como você pode experimentar as glórias do macOS 10.14 Mojave e além!
 
-> Are there any GPU board partners I should avoid when buying a GPU?
+> Existe alguma marca de GPU que eu devo evitar ao comprar?
 
-Why I'm glad you asked, most manufactures actually have a pretty good track record with Hackintoshes but there's 2 specific brands to avoid. While it is possible to install with these GPUs, there still is a high possibility of issues arising like instability and black screens:
+Que bom que perguntou. A maioria dos fabricantes possuem um excelente histórico com *hackintoshes*, mas há duas marcas específicas que é bom evitar. Embora seja possível instalar o macOS usando essas GPUs, ainda há uma possibilidade alta de surgirem problemas como instabilidade e telas pretas.
 
-* XFX(may work with CSM/legacy mode turned off, make sure it's in UEFI mode)
+* XFX (talvez funcione com o CSM/Legacy Mode desligado, então certifique-se de estar com o modo UEFI ativado).
 * PowerColor
-* MSI(Navi specifically, Vega and Polaris are fine)
+* MSI (especificamente Navi, mas Vega e Polaris estão de boa).
 
-Note: AMD Navi support is still quite finicky, with WhateverGreen not being updated yet
+Observação: o suporte a Navi da AMD ainda é complicado, pois a  WhateverGreen não foi atualizada ainda.
 
-::: tip Recommendations
+::: tip Recomendações
 
-So our overall recommendation for GPUs:
+Então a recomendação geral para GPUs é:
 
-* Newer AMD GPUs:
-  * Polaris 10 and 20(RX 4XX, 5XX)
-  * Vega 10 and 20(RX Vega 56, 64 and VII)
-  * Navi 10(RX 5XXX)
-* Overall brand recommendations:
-  * Sapphire
-  * Asus
-  * Gigabyte
+* GPUs AMD mais novas:
+  * Polaris 10 e 20 (RX 4XX, 5XX).
+  * Vega 10 e 20 (RX Vega 56, 64 e VII).
+  * Navi 10 (RX 5XXX).
+* Marcas recomendadas:
+  * Sapphire.
+  * Asus.
+  * Gigabyte.
+
 :::
 
-**GPUs that aren't supported AT ALL**
+**GPUs que não possuem NENHUM suporte**
 
 Ampere
 
@@ -74,16 +75,16 @@ Lexa
 * RX 540/X
 * RX 550/X
 
-**GPUs to avoid**
+**GPUs a se evitar**
 
 Pascal
 
-* GTX Titan X(GP 102-400 Pascal core)
-* GTX Titan Xp(GP 102-450 Pascal core)
-* GTX 1080/Ti
-* GTX 1070/Ti
+* GTX Titan X (GP 102-400 núcleo Pascal)
+* GTX Titan XP (GP 102-450 núcleo Pascal)
+* GTX 1080/TI
+* GTX 1070/TI
 * GTX 1060
-* GTX 1050/Ti
+* GTX 1050/TI
 * GT 1030
 
 * Quadro P400
@@ -98,12 +99,12 @@ Pascal
 
 Maxwell
 
-* GTX Titan X(GM 200 Maxwell core)
-* GTX 980/ti
+* GTX Titan X (GM 200 núcleo Maxwell)
+* GTX 980/TI
 * GTX 970
 * GTX 960
 * GTX 950
-* GTX 750/ti
+* GTX 750/TI
 * GTX 745
 
 * Quadro K620

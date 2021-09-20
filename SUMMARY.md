@@ -1,14 +1,14 @@
-# Table of contents
+# Índice
 
-* [Anti-Buyers Guide](README.md)
+* [Guia Anti-Compra](README.md)
 * [CPU](CPU.md)
 * [GPU](GPU.md)
-* [Motherboard](Motherboard.md)
-* [Storage](Storage.md)
+* [Placa-mãe](Motherboard.md)
+* [Armazenamento](Storage.md)
 * [RAM](RAM.md)
 * [Cooler](Cooler.md)
-* [Networking](Networking.md)
-* [Wireless](Wireless.md)
-* [Power Supply](PSU.md)
-* [Case](Case.md)
-* [Thermal Paste](ThermalPaste.md)
+* [Rede](Networking.md)
+* [Wi-Fi](Wireless.md)
+* [Fonte de Alimentação](PSU.md)
+* [Gabinete](Case.md)
+* [Pasta Térmica](ThermalPaste.md)

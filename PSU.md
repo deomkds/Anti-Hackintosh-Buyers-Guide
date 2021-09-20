@@ -1,4 +1,4 @@
-# Power Supply
+# Fonte de Alimentação
 
-~~If it has RGB in it, I will personally come to your house and force a Unibeast installer down your throat~~
-Just don't cheap out on your PSU but be reasonable with what you buy, RGB ain't a good purchasing decision
+~~Se tiver RGB, eu vou até a sua casa pessoalmente forçar um instalador Unibeast na sua garganta~~
+Só não compre a mais barata e seja razoável com o que você compra. RGB não é uma escolha muito responsável.

@@ -1,14 +1,14 @@
-# Wireless
+# Wi-Fi
 
-For wireless, keep in mind that macOS has a very limited selection for native Wifi and Bluetooth cards but Midi has a great list on supported models that you can find in the [r/Hackintosh FAQ](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility). But for those who are either motherboard shopping or just looking for dedicated wireless will need to keep in mind that the following wireless cards are not supported:
+Quanto ao Wi-Fi, tenha em mente que o macOS possui uma seleção bastante limita de placas Wi-Fi e Bluetooth nativas, mas Midi possui uma lista excelente acerca dos modelos suportados que pode ser encontrado aqui: [r/Hackintosh FAQ](https://www.reddit.com/r/hackintosh/wiki/faq#wiki_wifi_compatibility) (em inglês). Mas aqueles que estejam comprando uma placa-mãe ou somente procurando por placas Wi-Fi dedicadas, é interessante ter em mente que as seguintes placas Wi-Fi não são suportadas:
 
-**Wireless cards that aren't supported AT ALL**
+**Placas Wi-Fi que não possuem NENHUM suporte**
 
-* Any Intel based wireless(Bluetooth sometimes works but it's inconsistent and seems to be on a per system basis)
-* Any Killer based wireless
+* Todas as placas Intel (o Bluetooth às vezes funciona, mas é inconsistente e parece depender do computador).
+* Todas as placas Killer.
 
-**Wireless cards to avoid**
+**Placas Wi-Fi a se evitar**
 
-* Any USB based (Ralink and Realtek) as these generally aren't as reliable and some macOS functions like Handoff and Apple Watch Unlock may not function correctly
+* Todas as placas USB (Ralink e Realtek), visto que essas geralmente não são tão confiáveis e alguns recursos do macOS, como o Handoff e o Apple Watch Unlock, podem não funcionar corretamente.
 
-And for those who want a list of supported models can check out the [Wireless Buyers Guide](https://dortania.github.io/Wireless-Buyers-Guide/)
+E aqueles que queiram uma lista de modelos suportados, podem acessar o [Guia de Compra de Wi-Fi](https://deomkds.github.io/Wireless-Buyers-Guide/)

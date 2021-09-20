@@ -1,3 +1,3 @@
-# Case
+# Gabinete
 
-If your shoe fits in it, your hack will likely boot in it
+Se cabe o seu sapato, cabe um macOS *hackeado*.

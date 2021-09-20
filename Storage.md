@@ -1,30 +1,32 @@
-# Storage
+# Armazenamento
 
-Storage is a section that can be quite confusing as there a lot of mixed reports regarding PCIe/NVMe based devices, many of these reports are based off old information from back when PCIe/NVMe drives were not natively supported like block size mattering or require kexts/.efi drivers. Well, High Sierra brought native support for these types of drives but certain ones still do not work and can cause instability if not removed/blocked out at an ACPI level.
+Armazenamento é uma seção que pode ser um tanto confusa, já que existem muitos relatos confusos sobre dispositivos baseados em PCIe/NVMe. Muitos desses relatos são baseados em informações antigas da época em que as unidades PCIe/NVMe não eram suportadas nativamente, o tamanho dos blocos era importante ou exigiam `kexts` e drivers `.efi`. No entanto, o macOS 10.13 High Sierra trouxe suporte nativo para esses tipos de unidades. Mesmo assim, certas unidades ainda não funcionam e podem causar instabilidade caso não sejam removidas ou bloqueadas no nível da ACPI.
 
-The other big issue surrounds all Samsung NVMe drives, specifically that they're known to slow down macOS, not play well with TRIM and even create instability at times. This is due to the Phoenix controller found on Samsung drives that macOS isn't too fond of, much preferring the Phison controller found in Sabrent Rocket drives and Western Digital's in-house controllers(WD SN750). The easiest way to see this is with boot up, most systems running Samsung drives will have extra long boot times and have their drives run hotter due to the software TRIM failing(hardware TRIM still should be enabled but no partiality). Also some older Intel drives and Kingston NVMe drives also experience these issues.
+O outro grande problema gira em torno de todos as unidades NVMe da Samsung. Mais especificamente, elas são conhecidas por causarem lentidão no macOS, não funcionarem muito bem com o TRIM e até mesmo criar instabilidade em alguns momentos. Isto deve-se ao controlador Phoenix encontrado nas unidades da Samsung, que o macOS não gosta muito, preferindo muito mais os controladores Phison encontrado nas unidades Sabrent Rocket e os controladores proprietários da Western Digital (WD SN750). A maneira mais fácil de observar isso é durante a inicialização: a maioria dos sistemas que utilizam unidades da Samsung apresentam tempos de inicialização extra longos e temperaturas mais altas no SSD devido à falha do software responsável pelo TRIM (o TRIM a nível de hardware ainda deve estar habilitado, mas sem parcialidade). 
 
-And while not an issue anymore, do note that all of Apple's PCIe drives are 4K sector-based so for best support only choose drives with such sectors.
+Algumas unidades NVMe mais antigas da Intel e da Kingston também apresentam esses problemas. 
 
-**Note for laptop users**: Intel SSDs don't always play nicely with laptops and can cause issues, avoid when possible
+E, embora não seja mais um problema, observe que todas as unidades PCIe da Apple são baseadas em setores de 4k. Para obter um suporte melhor, somente escolha unidades com tais setores.
 
-**SSD/Storage Options that are NOT supported:**
+**Observação para Usuários de Notebooks**: SSDs Intel nem sempre funcionam muito bem com notebooks e podem causar problemas. Evite sempre que possível.
 
-* Any eMMC based storage (commonly found in netbooks, some tablets and low end computer models.)
-* Samsung PM981 and PM991(commonly found in OEM systems like laptops)
-  * Even if PM981 has been fixed with [NVMeFix](https://github.com/acidanthera/NVMeFix/releases) version 1.0.2 there is still plenty of kernel panics issues
+**Opções de SSD/Armazenamento Que NÃO São Suportadas:**
+
+* Qualquer unidade baseada em eMMC (encontrado mais comumente em netbooks, alguns tablets e computadores de entrada).
+* Samsung PM981 e PM991 (encontrados comumente em computadores OEM como notebooks).
+  * Mesmo que o PM981 tenha sido corrigido com a versão 1.0.2 da [NVMeFix](https://github.com/acidanthera/NVMeFix/releases), ainda existe uma abundância de problemas de *kernel panic*. 
 * Micron 2200S
-  * Many users have report boot issues with this drive
+  * Muitos usuários reportaram problemas com essa unidade.
 
-**SSDs to avoid**
+**SSDs a se evitar**
 
 Samsung:
 
-* Samsung 970 Evo Plus (While not natively supported out of the box, a [firmware update from Samsung](https://www.samsung.com/semiconductor/minisite/ssd/download/tools/) will allow these drives to operate in macOS)
+* Samsung 970 Evo Plus (embora não seja suportado nativamente de fábrica, uma [atualização de firmware da Samsung](https://www.samsung.com/semiconductor/minisite/ssd/download/tools/) permitirá que essas unidades funcionem no macOS).
 
 Intel:
 
-* Intel 600p([Any fix for Intel 600p NVMe Drive? #1286](https://github.com/acidanthera/bugtracker/issues/1286))
-  * note the Intel 660p are fine
+* Intel 600p ([Any fix for Intel 600p NVMe Drive? #1286](https://github.com/acidanthera/bugtracker/issues/1286) (em inglês)).
+  * Observe que o SSD Intel 660p funciona.
 
-For all NVMe SSDs, its recommended to use [NVMeFix.kext](https://github.com/acidanthera/NVMeFix) to fix power and energy consumption on these drives
+Para todos os SSDs NVMe, é recomendado utilizar a [NVMeFix.kext](https://github.com/acidanthera/NVMeFix) para corrigir o consumo de energia das unidades.
